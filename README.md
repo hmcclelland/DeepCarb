@@ -9,7 +9,7 @@
 % seawater carbonate chemistry, particularly over i) long timescales and
 % ii) in a Monte Carlo fashion with random permutations of key model
 % parameterisations.
-%
+
 % By default, the model can be run in one of two ways. Setting the variable
 % nMC = 1 will result in a simulation run only once using the default set
 % of model parameterisations. Setting nMC = n will result in n model
@@ -20,7 +20,7 @@
 % saturation state of the deep ocean box, and iii) the slope of the
 % relationship between CaCO3 production in the surface ocean and the
 % saturation state of the surface ocean box.
-%
+
 % To maintain flexibility, this script is not a function. Before running
 % the model, at least four parameters need to be manually changed in the
 % script. These are:
