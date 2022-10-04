@@ -26,12 +26,7 @@ script. These are:
   2) parfor/for - use the parallel computing toolbox to speed the model
      up when running multiple simulations. To do so, manually change
      for to parfor on line 152.
-  3) ageEnd - the time in years at which the simulation should stop. Note
-     that rather than preallocating all matrices, the model loads a set of
-     stable simulations which includes the necessary variables. These
-     have a length of 15 Myr. If longer simulations are required, the
-     matrices need to be modified in the accompanying data files from 
-     which the initial stable conditions are loaded.
+  3) ageEnd - the time in years at which the simulation should stop.
   4) The model needs to be perturbed in some way. Examples of how this
      can be done are given below andthroughout the script. For example, 
      atmospheric CO2 could be modified or prescribed (atCO2in), weathering 
