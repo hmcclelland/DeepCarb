@@ -1,5 +1,5 @@
 function output = ...
-    co2syslite_v0_2(tempIn,SalIn,pressIn,PO4In,SIn,TAlkIn,DICin,Ca,Mg,SO4)
+    co2syslite_v0_2_test(tempIn,SalIn,pressIn,PO4In,SIn,TAlkIn,DICin,Ca,Mg,SO4)
 % input values
 temp = tempIn;
 pressure = pressIn;
@@ -20,7 +20,11 @@ pH = CalculatepHfromTATC(TAlk,DIC,constants);
 pCO2 = CalculatepCO2fromTCpH(DIC,pH,constants);
 [OmegaCa,CO3] = CaSolubility(temp,pressure,salinity,DIC,pH,constants,CaComp,MgComp,SO4Comp);
 
-output = [pH pCO2 OmegaCa CO3.*1e6];
+
+%=-=-=-=-=- HM: I've changed the inputs to accept TA as a horizontal vector
+%and DIC as a vertical vector. The individal components are then 2d arrays:
+%this stacks the output into a 3d array with 4 layers. =-=-=-==-==-
+output = cat(3,pH, pCO2, OmegaCa, CO3.*1e6);    
 
 end
 

@@ -153,9 +153,13 @@ if nMC>1    % use either parfor waitbar or normal waitbar
     WaitMessage = parfor_wait(nMC, 'ReportInterval', 1,  'Waitbar', true);
 end
 tic
-for j = 1:nMC
-    
-    % the model is packaged with two sets of initial stable conditions
+
+
+%-=-=-=-=-=- HM: loading files is quite time consuming. Lots of latency if this is inside
+%the loop as all MC iterations have the same initial conditions: =-=-=--=-=-=-=-=-=-=-
+
+
+% the model is packaged with two sets of initial stable conditions
     % Modern - 280 ppm atmospheric CO2
     % Eocene - 800 ppm atmospheric CO2
     % modern
@@ -165,6 +169,11 @@ for j = 1:nMC
 %     loadStable = ...
 %        load('initial_stable_v0_147_Eo_800ppm_10stepsize_200mSurface_cut.mat');
 
+
+
+for j = 1:nMC
+    
+    
     % load matrices containing stable conditions
     age = loadStable.age;
     sT = loadStable.sT;
